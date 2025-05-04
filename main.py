@@ -52,6 +52,9 @@ with open(OUTPUT_FILE, "w") as f:
                 if is_numeric_field(value):
                     total_sum += safe_float(value)
 
+            # Apply rounding to the total sum to ensure no extra decimals
+            total_sum = round(total_sum, 2)  # Round to 2 decimal places
+
             # If total allocation is non-zero, include in the results
             if total_sum > 0:
                 # Append the address and its total to the address_data list
