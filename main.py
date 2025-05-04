@@ -47,8 +47,12 @@ with open(OUTPUT_FILE, "w") as f:
             total_sum = 0.0
             claimed = data.get("claimed", False)
 
-            # Sum all numeric fields for this address
+            # Sum all numeric fields for this address, excluding "canAirdrop" and value 1.0
             for key, value in data.items():
+                # Skip if the key is "canAirdrop" or if the value is 1.0
+                if key == "canAirdrop" or safe_float(value) == 1.0:
+                    continue  # Skip this field
+
                 if is_numeric_field(value):
                     total_sum += safe_float(value)
 
