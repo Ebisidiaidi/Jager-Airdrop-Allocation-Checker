@@ -1,0 +1,1 @@
+# Jager-Airdrop-Allocation-Checker
